@@ -12,9 +12,9 @@
         {% if house.photo %}
             <img src="{{ house.photo.url }}", alt="{{ house.name }}">
         {% endif %}
-        <div>{{ house.price }}</div>
-        <div>{{ house.description }}</div>
-        <div>{{ house.date }}</div>
+        <div><b>Цена:</b> {{ house.price }}$</div>
+        <div><b>Описание:</b> {{ house.description }}</div>
+        <div><b>Дата:</b> {{ house.date }}</div>
     </div>
 {% endfor %}
 </body>
