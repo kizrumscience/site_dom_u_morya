@@ -8,5 +8,5 @@ def houses_list(request):
     # которые добавили через админку, эквивалентно SELECT * FROM houses_house ORDER BY name, через модель House
     # получаем все объекты, queryset - набор данных полученных с помощью SQL запроса
     for house in houses:
-        print(house.name, house.price)
+        print(house.name, house.price, house.date)
     return render(request, "houses/houses_list.html", {"houses": houses})

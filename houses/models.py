@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 class House(models.Model):
@@ -6,6 +7,7 @@ class House(models.Model):
     price = models.IntegerField("цена")
     description = models.TextField("описание")
     date = models.DateField("дата", default='2020-01-01')
+    photo = models.ImageField("фотография", upload_to="houses/photos", default="", blank=True)
 
     class Meta:
         verbose_name = "дом"
