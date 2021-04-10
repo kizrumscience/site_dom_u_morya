@@ -5,6 +5,7 @@ class House(models.Model):
     name = models.CharField("название", max_length=50)
     price = models.IntegerField("цена")
     description = models.TextField("описание")
+    date = models.DateField("дата", default='2020-01-01')
 
     class Meta:
         verbose_name = "дом"
