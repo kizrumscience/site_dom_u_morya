@@ -16,8 +16,10 @@ def houses_list(request):
 def about_house(request, house_name):
     """Опиание дома в отдельной странице"""
     house = House.objects.get(name=house_name)
-    output = f"<b>{house_name}</b> продается по цене {house.price}$<h1><br><b>Описание</b></h1><br>{house.description}"
+    output1 = f"<h1><b>{house_name}</b></h1>"
+    output2 = f"<h1><br><b>Описание</b></h1> <b>{house_name}</b>продается по цене {house.price}$<br>{house.description}"
     if house.photo:
-        return HttpResponse(f'<img src="{house.photo.url}" alt="{house.name }" width="640" height="480"> <br>' + output)
+        return HttpResponse(output1 + f'<img src="{house.photo.url}" alt="{house.name }" width="640" height="480"> <br>'
+                            + output2)
     else:
-        return HttpResponse(output)
+        return HttpResponse(output1 + output2)

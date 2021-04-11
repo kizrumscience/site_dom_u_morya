@@ -8,7 +8,7 @@
 <h1>Список домов</h1>
 {% for house in houses %}
     <div>
-        <h2><u><a href="{{ house.name }}">{{ house.name }}</a></u></h2>
+        <h2><u><a href="{{ house.name }}" style="color: black">{{ house.name }}</a></u></h2>
         {% if house.photo %}
             <img src="{{ house.photo.url }}" alt="{{ house.name }}" width="640" height="480">
         {% endif %}
