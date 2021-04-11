@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from houses.models import House
+from django.http import HttpResponse
 
 
 def houses_list(request):
@@ -10,3 +11,13 @@ def houses_list(request):
     for house in houses:
         print(house.name, house.price, house.date)
     return render(request, "houses/houses_list.html", {"houses": houses})
+
+
+def about_house(request, house_name):
+    """Опиание дома в отдельной странице"""
+    house = House.objects.get(name=house_name)
+    output = f"<b>{house_name}</b> продается по цене {house.price}$<h1><br><b>Описание</b></h1><br>{house.description}"
+    if house.photo:
+        return HttpResponse(f'<img src="{house.photo.url}" alt="{house.name }" width="640" height="480"> <br>' + output)
+    else:
+        return HttpResponse(output)
