@@ -1,7 +1,11 @@
 {% extends "index.html" %}
 
 {% block application %}
-<h1>Список домов</h1>
+    <form action="" method="get">
+    {{ form.as_p}}
+    <input type="submit" value="Поиск">
+    </form>
+<h1 align="center">Список домов</h1>
 {% for house in houses %}
     <div class="active">
         <h2><a href="{% url 'house' house.id %}">{{ house.name }}</a></h2>
