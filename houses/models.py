@@ -9,9 +9,12 @@ class House(models.Model):
     photo = models.ImageField("фотография", upload_to="houses/photos", default="", blank=True)
 
     class Meta:
+        # описательный класс
         verbose_name = "дом"
         verbose_name_plural = "дома"
-        ordering = ["name"]
+        # сортировка
+        ordering = ["name", "price"]
 
     def __str__(self):
+        # houses.object = name in up admin
         return self.name.upper()

@@ -1,10 +1,9 @@
 {% extends "index.html" %}
-
+{% block title_html %}Дом {{ house.name }}{% endblock %}
 {% block application %}
-<h1>Список домов</h1>
-{% for house in houses %}
+    <a href="{% url 'home' %}">Главная</a>
     <div class="active">
-        <h2><a href="{% url 'house' house.id %}">{{ house.name }}</a></h2>
+        <h2>{{ house.name }}</h2>
         {% if house.photo %}
             <img src="{{ house.photo.url }}" alt="{{ house.name }}" width="640" height="480">
         {% endif %}
@@ -12,5 +11,4 @@
         <div><b>Описание:</b> {{ house.description }}</div>
         <div><b>Дата:</b> {{ house.date }}</div>
     </div>
-{% endfor %}
 {% endblock %}
