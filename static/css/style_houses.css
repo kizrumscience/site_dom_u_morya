@@ -1,11 +1,68 @@
 body {
-    background-color: rgba(58, 97, 180, 0.47);
+    background-color: rgba(50, 100, 180, 0.47);
 }
 b {
-   font-family: "Arial Narrow", sans-serif;
+   font-family: "Times New Roman", sans-serif;
 }
-div.active {
-    width: 500px;
-    padding: 10px;
+header{
+    height: 100px;
+    padding: 17px 0 22px 0;
+    background-color: #3175cb;
+    margin-bottom: 10px;
+}
+header .logo {
+    width: 227px;
+    height: 10px;
     margin: 0 auto;
+    display: block;
+}
+.search-form{
+    width: 800px;
+    display: block;
+    margin: 0 auto 30px auto;
+}
+
+.houses {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.houses .house {
+    float: left;
+    width: 325px;
+    margin-right: 20px;
+    display: block;
+    height: 270px;
+    margin-bottom: 20px;
+}
+
+.houses .house:nth-child(3n+3) {
+    margin-right: 0;
+}
+
+.houses .house .img {
+    width: 325px;
+    height: 200px;
+    display: block;
+}
+
+.houses .house .img img {
+    width: 325px;
+    height: 200px;
+}
+
+.house_detail .image-house{
+    width: 1024px;
+    height: 860px;
+    display: block;
+}
+.buy{
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+div.house_detail{
+    width: 860px;
+    margin: 0 auto 20px auto;
 }

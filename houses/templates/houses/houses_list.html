@@ -4,20 +4,24 @@
 {% block application %}
 
     <form action="" method="get" class="search-form">
-    {{ form.as_p}}
+    <b>Цена</b> {{ form }}
     <input type="submit" value="Поиск">
     </form>
 
     <div class="houses">
         {% for house in houses %}
             <div class="house">
-                <h2><a href="{% url 'house' house.id %}">{{ house.name }}</a></h2>
-                {% if house.photo %}
-                    <img src="{{ house.photo.url }}" alt="{{ house.name }}" width="640" height="480">
-                {% endif %}
-                <div><b>Цена:</b> {{ house.price| intcomma }}$</div>
-                <div><b>Описание:</b> {{ house.description }}</div>
-                <div><b>Дата:</b> {{ house.date }}</div>
+                <a href="{% url 'house' house.id %}" class="img">
+                    {% if house.photo %}
+                        <img src="{{ house.photo.url }}" alt="{{ house.name }}">
+                    {% endif %}
+                </a>
+                <h2><a href="{% url 'house' house_id=house.id %}">{{ house.name }}</a></h2>
+                <div>
+                    <b>Цена:</b> {{ house.price| intcomma }}$<br>
+                    <b>Описание:</b> {{ house.description }}<br>
+                    <b>Дата:</b> {{ house.date }}
+                </div>
             </div>
         {% endfor %}
     </div>
