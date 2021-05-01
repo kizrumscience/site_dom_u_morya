@@ -13,6 +13,9 @@
     </div>
 
     <h2>Заявка</h2>
+    {% if sended %}
+        Спасибо! Ваша заявка принята.
+    {% endif %}
     <form action="" method="post">
         {% csrf_token    %}
         {{ form.as_p }}
