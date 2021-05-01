@@ -1,20 +1,25 @@
 {% extends "index.html" %}
+{% load humanize %}
 
 {% block application %}
-    <form action="" method="get">
+
+    <form action="" method="get" class="search-form">
     {{ form.as_p}}
     <input type="submit" value="Поиск">
     </form>
-<h1 align="center">Список домов</h1>
-{% for house in houses %}
-    <div class="active">
-        <h2><a href="{% url 'house' house.id %}">{{ house.name }}</a></h2>
-        {% if house.photo %}
-            <img src="{{ house.photo.url }}" alt="{{ house.name }}" width="640" height="480">
-        {% endif %}
-        <div><b>Цена:</b> {{ house.price }}$</div>
-        <div><b>Описание:</b> {{ house.description }}</div>
-        <div><b>Дата:</b> {{ house.date }}</div>
+
+    <div class="houses">
+        {% for house in houses %}
+            <div class="house">
+                <h2><a href="{% url 'house' house.id %}">{{ house.name }}</a></h2>
+                {% if house.photo %}
+                    <img src="{{ house.photo.url }}" alt="{{ house.name }}" width="640" height="480">
+                {% endif %}
+                <div><b>Цена:</b> {{ house.price| intcomma }}$</div>
+                <div><b>Описание:</b> {{ house.description }}</div>
+                <div><b>Дата:</b> {{ house.date }}</div>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
+
 {% endblock %}

@@ -19,6 +19,8 @@ def houses_list(request):
         if form.cleaned_data["max_price"]:
             # price__lte - меньше либо равно
             houses = houses.filter(price__lte=form.cleaned_data["max_price"])
+        if form.cleaned_data["ordering"]:
+            houses = houses.order_by(form.cleaned_data["ordering"])
     return render(request, "houses/houses_list.html", {"houses": houses, "form": form})
 
 
